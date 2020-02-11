@@ -1,0 +1,7 @@
+:8080
+
+root * /data
+
+encode zstd gzip
+templates
+file_server

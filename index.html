@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>MixedZero - {{ env "SERVER_NAME" }}</title>
+
+        <style>
+            @font-face {
+                font-family: "Fira Sans";
+                font-style: normal;
+                font-weight: 500;
+                src: local('Fira Sans Medium'),
+                     local('FiraSans-Medium'),
+                     url('fonts/FiraSans-Medium.woff2') format('woff2'),
+                     url('fonts/FiraSans-Medium.woff') format('woff');
+            }
+
+            html {
+                height: 100%;
+            }
+
+            body {
+                height: 100%;
+                margin: 0;
+
+                background: #222;
+                color: #fff;
+
+                font-family: "Fira Sans", sans-serif;
+            }
+
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100%;
+            }
+
+            .content {
+                width: auto;
+            }
+
+            h1 {
+                font-size: 6.67vw;
+                font-style: normal;
+                font-weight: 500;
+            }
+
+            h1 .accent {
+                color: #189ad3;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="content">
+                <h1><span class="accent">{{ env "SERVER_NAME" | lower }}</span>.mixedzero.com</h1>
+            </div>
+        </div>
+    </body>
+</html>
