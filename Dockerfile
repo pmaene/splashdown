@@ -2,17 +2,17 @@ FROM caddy/caddy:scratch AS caddy
 
 FROM alpine:latest AS alpine
 
-RUN mkdir /data
+RUN mkdir /app
 
-COPY fonts/ /data/fonts/
-COPY index.html /data/
+COPY fonts/ /app/fonts/
+COPY index.html /app/
 
 FROM scratch
 
 COPY --from=caddy /etc/ssl/certs/ /etc/ssl/certs/
 COPY --from=caddy /usr/bin/caddy /usr/bin/
 
-COPY --from=alpine /data/ /data/
+COPY --from=alpine /app/ /app/
 
 COPY Caddyfile /etc/caddy/
 
