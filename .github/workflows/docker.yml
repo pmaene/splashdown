@@ -8,6 +8,9 @@ on:
 
     tags: []
 
+  schedule:
+    - cron: 0 4 * * *
+
 jobs:
   build:
     name: Build
