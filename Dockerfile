@@ -1,4 +1,4 @@
-FROM caddy/caddy:latest AS caddy
+FROM caddy:latest AS caddy
 
 FROM alpine:latest AS alpine
 
