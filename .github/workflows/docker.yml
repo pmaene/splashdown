@@ -23,3 +23,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: pmaene/splashdown
           tags: latest
+          push: ${{ github.ref == 'refs/heads/master' }}
