@@ -24,3 +24,30 @@ jobs:
           repository: pmaene/splashdown
           tags: latest
           push: ${{ github.ref == 'refs/heads/master' }}
+
+  merge:
+    name: Merge
+    needs: build
+    runs-on: ubuntu-latest
+
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false && (
+        github.event.action == 'opened' ||
+        github.event.action == 'reopened' ||
+        github.event.action == 'synchronize'
+      ) &&
+      github.actor == 'dependabot[bot]'
+
+    steps:
+      - name: Merge Pull Request
+        uses: actions/github-script@v2.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.pulls.merge({
+              merge_method: "rebase",
+              owner: context.repo.owner,
+              pull_number: context.payload.pull_request.number,
+              repo: context.repo.repo,
+            })
