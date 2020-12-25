@@ -19,7 +19,7 @@ jobs:
 
       - name: Generate metadata for Docker
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1.10.0
+        uses: crazy-max/ghaction-docker-meta@v1.11.0
         with:
           images: ghcr.io/${{ github.repository }}
           tag-match: v(.*)
