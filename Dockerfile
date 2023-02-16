@@ -1,4 +1,4 @@
-FROM caddy:2.6.3 AS caddy
+FROM caddy:2.6.4 AS caddy
 
 FROM alpine:3.17.2 AS alpine
 
