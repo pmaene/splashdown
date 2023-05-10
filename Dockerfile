@@ -1,6 +1,6 @@
 FROM caddy:2.6.4 AS caddy
 
-FROM alpine:3.17.3 AS alpine
+FROM alpine:3.18.0 AS alpine
 
 RUN mkdir /app
 
